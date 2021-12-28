@@ -23,13 +23,13 @@ $$
 
 ​       **YOLO将图像分成S×S（S=7）的网格grid cell，并且每个网格单元负责预测B（B=2）个边界框box。加上每个边界框box的置信度confidence，每个网格的C个条件类别概率**
 
-![3](..\image\3.png)
+![3](../image/3.png)
 
 ### 3、训练样本标签
 
 图中蓝色，黄色，粉色的框框就是我们标注时候的框框，对应的类别分别为 dog，bicycle，car
 
-![4](..\image\4.png)
+![4](../image/4.png)
 
 - 20个对象分类概率
 
@@ -54,7 +54,7 @@ $$
 
   ​	7×7个grid cell，每个grid cell 有两个bounding box ，共计7×7×2=98个bounding box,每个bounding box 都有一个 置信度confidence信息，那么98个中只有3个是计算出的IOU值，其余95个都是0
 
-### 4、损失函数![6](..\image\6.png)
+### 4、损失函数![6](../image/6.png)
 
 ### 5、预测（inference)与NMS（非极大值抑制）
 
@@ -76,7 +76,7 @@ $$
 
 ### 1、改进策略
 
-![7](..\image\7.jpg)
+![7](../image/7.jpg)
 
 - **Batch Normalization**
 
