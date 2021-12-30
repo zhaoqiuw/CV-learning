@@ -9,7 +9,7 @@
 ​	其他层使用的激活函数是leaky rectified activation:
 $$
 \phi(x)=\begin{cases}
-x,   \quad \ \ if   \ x>0 \\
+x,   \quad \ \ if   \ x>0  \\
 0.1x,\ otherwise
 \end{cases}
 $$
