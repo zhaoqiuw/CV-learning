@@ -171,7 +171,7 @@ def plot(sample: Dict[str, Tensor],show_titles: bool = True,suptitle: Optional[s
 
 if __name__ == "__main__":
 
-    sample = get_sample("./test")
+    sample = get_sample("./seg_image")
     fig = plot(sample,suptitle = "Semantic segmentation of remote sensing")
     plt.show()
 
