@@ -1,0 +1,29 @@
+MODEL:
+  MODEL_TYPE: FPN
+  ENCODER_NAME: resnet50
+  ENCODER_WEIGHTS: imagenet
+  IN_CHANNLES: 3
+  NUM_CLASSES: 1
+  OPTIMIZER_LR: 0.0001
+  
+  
+DATASET:
+  DATA_DIR_TRAIN: /home/zhaoqiu/code/landslip/landslip_dataset/train
+  DATA_DIR_TEST:  /home/zhaoqiu/code/landslip/landslip_dataset/test
+  TRAIN_BATCH: 32
+  VAL_BATCH: 32
+  NUM_WORKERS: 8
+
+TRAIN:
+  LOG_PATH: lightning_logs
+  LOG_VERSION: 0
+  MONITOR: valid_dataset_iou
+  GPUS: 1
+  MAX_EPOCHS: 300
+  CHECKPOINTS: /home/zhaoqiu/code/landslip/lightning_logs/resnet50-FPN/Version=0-epoch=214-valid_dataset_iou=0.80.ckpt
+  
+  
+
+
+
+  
