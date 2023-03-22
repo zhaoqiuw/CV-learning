@@ -59,5 +59,17 @@ def draw_feature_map(features,save_dir = '/heat/',num=0):
                 # cv2.destroyAllWindows()
                 cv2.imwrite(os.path.join(save_dir, str(i)+'.png'), superimposed_img)
                 i=i+1
-
+#整合后的热力图代码
+def featuremap_2_heatmap(feature_map, save_dir = '/home/zhaoqiu/code/mmsegmentation/attention_visualize/', name="query"):
+    assert isinstance(feature_map, torch.Tensor)
+    feature_map = feature_map.detach()
+    heatmap = np.array(feature_map.cpu())
+    combined_feature_map = np.sum(heatmap, axis=1)
+    min_val, max_val = np.min(combined_feature_map), np.max(combined_feature_map)
+    normalization_feature_map = (combined_feature_map- min_val) / (max_val - min_val)
+    normalization_feature_map = np.uint8(normalization_feature_map * 255)
+    normalization_feature_map = normalization_feature_map[0]
+    normalization_feature_map = cv2.applyColorMap(normalization_feature_map, cv2.COLORMAP_JET)
+    print(type(normalization_feature_map),normalization_feature_map.shape)
+    cv2.imwrite(save_dir+name+'.png',normalization_feature_map)
 
